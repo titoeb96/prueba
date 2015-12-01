@@ -1,22 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package newproject;
+package proyectojava_git;
 
-/**
- *
- * @author tito
- */
-public class Newproject {
+import com.ricardo.negocio.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 
-    /**
-     * @param args the command line arguments
-     */
+
+public class ProyectoJava_git {
+
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("Ejemplo");
-    }
+        Usuario usuario=new Usuario();
+        Scanner in=new Scanner(System.in);
+        System.out.println("NOMBRE;");
+        String nom=in.nextLine();
+        usuario.setNombre(nom);
+        System.out.println("APE:");
+        String ape=in.nextLine();
+        usuario.setApellido(ape);
+     
+       usuario.save();
+     
+       usuario.setUsuario_id(5);
+        usuario.delete();
+        
+       usuario.setUsuario_id(4);
+        usuario.setNombre("JUAN");
+        usuario.setApellido("PEREZ");
+        usuario.update();
+        
     
+        List<Usuario> lista=usuario.list();
+        for(Usuario u:lista){
+            System.out.println("NOMBRE:"+u.getNombre());
+        }
+        
+    }
+
 }
